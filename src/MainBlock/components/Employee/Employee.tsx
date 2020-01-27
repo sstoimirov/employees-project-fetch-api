@@ -1,5 +1,5 @@
 import * as React from "react";
-import { EmployeeType } from "../../../EmployeeType";
+import { EmployeeType } from "../../types";
 
 export class Employee extends React.PureComponent<EmployeeType, {}>{
     render() {

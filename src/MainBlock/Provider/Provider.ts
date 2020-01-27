@@ -11,18 +11,17 @@ export class Provider {
         this.employees = data;
     }
 
-    fetchData() {
+    async fetchData() {
         var headers = new Headers();
         const username = "hard"
         const password = username
-        var url = "http://hiring.rewardgateway.net/list"
+        var url = "https://cors-anywhere.herokuapp.com/http://hiring.rewardgateway.net/list"
         headers.set('Authorization', 'Basic ' + btoa(username + ":" + password));
-        return fetch(url, {
+        return await fetch(url, {
             headers: headers,
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 this.setEmployees(data);
             })
             .catch(console.log)
