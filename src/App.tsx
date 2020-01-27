@@ -1,9 +1,9 @@
-import * as React from 'react';
+import * as React from "react";
 import { observer } from "mobx-react";
-import './App.css';
-import { EmployeesView } from './MainBlock/components';
-import { State } from './MainBlock/State';
-import { Provider } from './MainBlock/Provider';
+import "./App.css";
+import { State } from "./MainBlock/State";
+import { Provider } from "./MainBlock/Provider";
+import { View } from "./MainBlock/ui";
 
 @observer
 class App extends React.PureComponent<{}, {}>{
@@ -16,7 +16,7 @@ class App extends React.PureComponent<{}, {}>{
   render() {
     return (
       <div>This is the main page
-        {<EmployeesView dataProvider={this.state} />}
+        {<View />}
       </div>
     )
   }

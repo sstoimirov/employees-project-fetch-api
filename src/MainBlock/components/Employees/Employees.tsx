@@ -1,11 +1,11 @@
-import * as React from 'react';
+import * as React from "react";
 import { observer } from "mobx-react";
-import { State } from '../../State';
-import * as CMP from '../../components';
-import { EmployeeType } from '../../types';
+import { State } from "../../State";
+import * as CMP from "../../components";
+import { EmployeeType } from "../../types";
 
 @observer
-export class EmployeesView extends React.PureComponent<{ dataProvider: State }, State>{
+export class Employees extends React.PureComponent<{ dataProvider: State }, State>{
 
     constructor(props) {
         super(props)
@@ -27,7 +27,6 @@ export class EmployeesView extends React.PureComponent<{ dataProvider: State }, 
                 />
 
             )).filter((x, index) => currentEmployees[index][this.state.optionValue].toUpperCase().indexOf(this.state.inputValue) > -1)
-
         )
     }
 

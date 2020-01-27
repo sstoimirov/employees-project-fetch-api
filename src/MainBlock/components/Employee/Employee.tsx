@@ -11,7 +11,6 @@ export class Employee extends React.PureComponent<EmployeeType, {}>{
                 <div className="employee-company">Company: {this.props.company}</div>
                 <a className="employee-avatar" onClick={this.props.onClick}><img src={this.props.avatar} /></a>
                 <div className="employee-bio">Bio: {this.props.bio}</div>
-
                 
             </div>
         )
