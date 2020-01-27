@@ -1,6 +1,8 @@
 import * as React from "react";
+import { observer } from "mobx-react";
 
-export class Pagination extends React.PureComponent<{ employeesPerPage: number, totalEmployees: number, paginate }, {}>{
+@observer
+export class Pagination extends React.PureComponent<{ employeesPerPage: number, totalEmployees: number,onClick:(e: React.MouseEvent<HTMLButtonElement>) => void; }, {}>{
     render() {
         const pageNumbers: number[] = [];
         for (let i = 1; i <= Math.ceil(this.props.totalEmployees / this.props.employeesPerPage); i++) {
@@ -10,9 +12,9 @@ export class Pagination extends React.PureComponent<{ employeesPerPage: number, 
             <ul className="pagination">
                 {pageNumbers.map(number => (
                     <li key={number} className="page-item">
-                        <a onClick={() => this.props.paginate} href="!#" className="page-link">
+                        <button onClick={this.props.onClick} className="page-value">
                             {number}
-                        </a>
+                        </button>
                     </li>
                 ))}
             </ul>
