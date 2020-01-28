@@ -7,10 +7,27 @@ import { ColorPicker } from "../ColorPicker";
 // import 'react-lazy-load-image-component/src/effects/blur.css';
 
 export class Employee extends React.PureComponent<EmployeeType, {}>{
+    elRef: React.RefObject<HTMLDivElement>
+
+    constructor(props) {
+        super(props)
+        this.elRef = React.createRef();
+
+    }
+    componentDidMount(){
+        if(this.elRef.current){
+            this.elRef.current.style.backgroundColor = localStorage.getItem("background-color") as string
+        }
+    }
+    onChange(el) {
+            var bgcolor = el.currentTarget.value.toLowerCase()
+            localStorage.setItem("background-color", bgcolor);
+        
+    }
     render() {
         return (
             <div className="employee">
-                <div className="employee-content">
+                <div className="employee-content" ref={this.elRef}>
                     <a className="employee-avatar" href="!#" onClick={this.props.onClick}><img data-src={this.props.avatar} alt="" /></a>
                     <div className="employee-name">Name: {this.props.name}</div>
                     <div className="employee-company">Company: {this.props.company}</div>
@@ -23,7 +40,7 @@ export class Employee extends React.PureComponent<EmployeeType, {}>{
                             <MenuItem value="blue">blue</MenuItem>
                         </Select>
                     </FormControl> */}
-                    <ColorPicker onChange={this.props.onChangeColor}/>
+                    <ColorPicker onChange={this.onChange} />
                 </div>
             </div>
         )

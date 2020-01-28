@@ -12,7 +12,6 @@ export class State {
     @observable indexOfFirstEmployee: number;
     @observable inputValue: string;
     @observable optionValue: string;
-
     private disposeEmployees: Lambda;
     constructor(provider: Provider) {
         this.provider = provider;
@@ -34,12 +33,11 @@ export class State {
         }
     }
     @action.bound updateColorBackground(e: React.ChangeEvent<HTMLSelectElement>) {
-        var bgcolor = e.currentTarget.value.toLowerCase()
-        if (e.currentTarget.parentElement) {
-            localStorage.setItem("background-color", bgcolor);
-            e.currentTarget.parentElement.style.backgroundColor = localStorage.getItem("background-color") as string
-        }
-
+        // var bgcolor = e.currentTarget.value.toLowerCase()
+        // if (e.currentTarget.parentElement) {
+        //     localStorage.setItem("background-color", bgcolor);
+        //     e.currentTarget.parentElement.style.backgroundColor = localStorage.getItem("background-color") as string
+        // }
     }
     @action.bound updateCurrentPage(e: React.MouseEvent<HTMLButtonElement>) {
         this.currentPage = parseFloat(e.currentTarget.innerText)
@@ -56,16 +54,15 @@ export class State {
     @action.bound updateOptionValue(el: React.FormEvent<HTMLSelectElement>) {
         this.optionValue = el.currentTarget.innerText.toLowerCase()
         // this.optionValue = el.currentTarget.innerText
-
     }
     @action.bound updateInputValue(e: React.FormEvent<HTMLInputElement>) {
         this.inputValue = e.currentTarget.value.toUpperCase();
     }
     activate() {
-        document.body.style.backgroundColor =  localStorage.getItem("background-color") as string
         this.disposeEmployees = observe(this.provider, "employees", e => {
             this.setEmployees(e.newValue)
         })
+
     }
     deactivate() {
         this.disposeEmployees();

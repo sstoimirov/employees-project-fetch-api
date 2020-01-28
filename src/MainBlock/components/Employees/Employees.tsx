@@ -11,6 +11,7 @@ export class Employees extends React.PureComponent<{ dataProvider: State }, Stat
     }
     componentDidMount() {
         this.state.activate();
+
     }
     getEmployees() {
         const currentEmployees = this.state.employees.slice(this.state.indexOfFirstEmployee, this.state.indexOfLastEmployee);
@@ -48,7 +49,6 @@ export class Employees extends React.PureComponent<{ dataProvider: State }, Stat
                     onChangeColor={this.state.updateColorBackground} />
             ))
             .filter((x, index) => currentEmployees[index][this.state.optionValue].toUpperCase().indexOf(this.state.inputValue) > -1)
-            .filter((x, i) => this.state.employees[i].uuid === "ffbbca55-5e47-31fd-abd4-195d1cf9d6b2")
         )
     }
 
