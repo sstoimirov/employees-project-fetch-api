@@ -27,21 +27,16 @@ export class State {
         this.disposeEmployees = () => { }
     }
     @action.bound changeColor(id: string, el: React.FormEvent<HTMLSelectElement>) {
+        var bgcolor = el.currentTarget.value.toLowerCase()
         const item = this.employees.find(i => i.uuid === id)
         if (item) {
-            item.colorValue = el.currentTarget.innerText;
+            localStorage.setItem(item.uuid, bgcolor);
+            item.colorValue = el.currentTarget.options[el.currentTarget.selectedIndex].value;
+            el.currentTarget.parentElement && (el.currentTarget.parentElement.style.background = item.colorValue)
         }
-    }
-    @action.bound updateColorBackground(e: React.ChangeEvent<HTMLSelectElement>) {
-        // var bgcolor = e.currentTarget.value.toLowerCase()
-        // if (e.currentTarget.parentElement) {
-        //     localStorage.setItem("background-color", bgcolor);
-        //     e.currentTarget.parentElement.style.backgroundColor = localStorage.getItem("background-color") as string
-        // }
     }
     @action.bound updateCurrentPage(e: React.MouseEvent<HTMLButtonElement>) {
         this.currentPage = parseFloat(e.currentTarget.innerText)
-
         this.indexOfLastEmployee = this.currentPage * this.employeesPerPage;
         this.indexOfFirstEmployee = this.indexOfLastEmployee - this.employeesPerPage;
     }
@@ -53,7 +48,6 @@ export class State {
     }
     @action.bound updateOptionValue(el: React.FormEvent<HTMLSelectElement>) {
         this.optionValue = el.currentTarget.innerText.toLowerCase()
-        // this.optionValue = el.currentTarget.innerText
     }
     @action.bound updateInputValue(e: React.FormEvent<HTMLInputElement>) {
         this.inputValue = e.currentTarget.value.toUpperCase();
@@ -62,7 +56,6 @@ export class State {
         this.disposeEmployees = observe(this.provider, "employees", e => {
             this.setEmployees(e.newValue)
         })
-
     }
     deactivate() {
         this.disposeEmployees();

@@ -11,8 +11,8 @@ export class Employees extends React.PureComponent<{ dataProvider: State }, Stat
     }
     componentDidMount() {
         this.state.activate();
-
     }
+
     getEmployees() {
         const currentEmployees = this.state.employees.slice(this.state.indexOfFirstEmployee, this.state.indexOfLastEmployee);
         // return (
@@ -44,9 +44,9 @@ export class Employees extends React.PureComponent<{ dataProvider: State }, Stat
                     avatar={data.avatar}
                     bio={data.bio}
                     onClick={this.state.toggleImageCls}
-                    onChange={this.state.changeColor.bind(this, data.uuid)}
-                    colorValue={data.colorValue}
-                    onChangeColor={this.state.updateColorBackground} />
+                    onColorChanged={this.state.changeColor.bind(this, data.uuid)}
+                    colorValue={localStorage.getItem(data.uuid) as string}
+                    />
             ))
             .filter((x, index) => currentEmployees[index][this.state.optionValue].toUpperCase().indexOf(this.state.inputValue) > -1)
         )
