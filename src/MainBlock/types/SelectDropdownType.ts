@@ -1,7 +1,7 @@
 import { EmployeeType } from "./EmployeeType";
 
 export type SelectDropdownType = {
-    onChange: any;
+    onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
     optionValue: string;
     employeeProps: EmployeeType;
 }
