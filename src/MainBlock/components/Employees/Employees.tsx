@@ -1,21 +1,40 @@
 import * as React from "react";
 import { observer } from "mobx-react";
 import { State } from "../../State";
-import * as CMP from "../../components";
-import { EmployeeType } from "../../types";
+import { Employee } from "../Employee";
 
 @observer
 export class Employees extends React.PureComponent<{ dataProvider: State }, State>{
-
     constructor(props) {
         super(props)
         this.state = this.props.dataProvider
     }
+    componentDidMount() {
+        this.state.activate();
+    }
     getEmployees() {
         const currentEmployees = this.state.employees.slice(this.state.indexOfFirstEmployee, this.state.indexOfLastEmployee);
+        // return (
+        //     currentEmployees.map(data => (
+        //         <Employee
+        //             key={data.uuid}
+        //             uuid={data.uuid}
+        //             name={data.name}
+        //             title={data.title}
+        //             company={data.company}
+        //             avatar={data.avatar}
+        //             bio={data.bio}
+        //             onClick={this.state.toggleImageCls}
+        //             onChange={this.state.changeColor.bind(this, data.uuid)}
+        //             colorValue={data.colorValue}
+        //             onChangeColor={this.state.updateColorBackground}
+        //         />
+        //     )).filter((x, index) => currentEmployees[index][this.state.optionValue].toUpperCase().indexOf(this.state.inputValue) > -1)
+        // )
+
         return (
             currentEmployees.map(data => (
-                <CMP.Employee
+                <Employee
                     key={data.uuid}
                     uuid={data.uuid}
                     name={data.name}
@@ -24,9 +43,12 @@ export class Employees extends React.PureComponent<{ dataProvider: State }, Stat
                     avatar={data.avatar}
                     bio={data.bio}
                     onClick={this.state.toggleImageCls}
-                />
-
-            )).filter((x, index) => currentEmployees[index][this.state.optionValue].toUpperCase().indexOf(this.state.inputValue) > -1)
+                    onChange={this.state.changeColor.bind(this, data.uuid)}
+                    colorValue={data.colorValue}
+                    onChangeColor={this.state.updateColorBackground} />
+            ))
+            .filter((x, index) => currentEmployees[index][this.state.optionValue].toUpperCase().indexOf(this.state.inputValue) > -1)
+            .filter((x, i) => this.state.employees[i].uuid === "ffbbca55-5e47-31fd-abd4-195d1cf9d6b2")
         )
     }
 
@@ -53,23 +75,10 @@ export class Employees extends React.PureComponent<{ dataProvider: State }, Stat
     //     )
     // }
     render() {
-        const selectMenuProps = {
-            onChange: this.state.updateOptionValue,
-            employeeProps: {
-                name: "Name",
-                uuid: "Id",
-                company: "Company",
-                title: "Title",
-                bio: "Bio"
-            } as EmployeeType
-        }
+
         return (
-            <div>
-                <CMP.Search text={`Search items by ${this.state.optionValue}`} onChange={this.state.updateInputValue} />
-                <CMP.SelectDropdown {...selectMenuProps} />
+            <div className="employees-wrapper">
                 {this.getEmployees()}
-                {/* <Employees/> */}
-                <CMP.Pagination employeesPerPage={this.state.employeesPerPage} totalEmployees={this.state.employees.length} onClick={this.state.updateCurrentPage} />
             </div>
         )
     }

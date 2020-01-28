@@ -1,6 +1,5 @@
 import * as React from "react";
 import { observer } from "mobx-react";
-import "./App.css";
 import { State } from "./MainBlock/State";
 import { Provider } from "./MainBlock/Provider";
 import { View } from "./MainBlock/ui";
@@ -15,9 +14,7 @@ class App extends React.PureComponent<{}, {}>{
 
   render() {
     return (
-      <div>This is the main page
-        {<View />}
-      </div>
+      <View />
     )
   }
 }

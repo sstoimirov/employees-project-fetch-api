@@ -1,20 +1,26 @@
 import * as React from "react";
-import { EmployeeType } from "../../types";
-export class SelectDropdown extends React.PureComponent<{
-    onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
-    employeeProps: EmployeeType
-}, {}>{
+import { SelectDropdownType } from "../../types";
+import { FormControl, Select, MenuItem } from "@material-ui/core";
+export class SelectDropdown extends React.PureComponent<SelectDropdownType, {}>{
 
     render() {
-        const { employeeProps } = this.props;
+        const { employeeProps, onChange, optionValue } = this.props;
         return (
-            <select className="select-options" onChange={this.props.onChange} >
-                <option value="name">{employeeProps.name}</option>
-                <option value="title">{employeeProps.title}</option>
-                <option value="uuid">{employeeProps.uuid}</option>
-                <option value="bio">{employeeProps.bio}</option>
-                <option value="company">{employeeProps.company}</option>
-            </select>
+            <>
+                <FormControl variant="outlined">
+                    <Select onChange={onChange} value={optionValue}>
+                        <MenuItem value="name">{employeeProps.name}</MenuItem>
+                        <MenuItem value="company">{employeeProps.company}</MenuItem>
+                        <MenuItem value="bio">{employeeProps.bio}</MenuItem>
+                    </Select>
+                </FormControl>
+
+                {/* <select className="select-options" onChange={onChange}>
+                    <option value="name">{employeeProps.name}</option>
+                    <option value="company" selected>{employeeProps.company}</option>
+                    <option value="bio">{employeeProps.bio}</option>
+                </select> */}
+            </>
         )
     }
 }

@@ -13,33 +13,39 @@ export class Provider {
     }
 
     fetchData() {
-        // var res = new XMLHttpRequest();
-        // var self = this;
-        // const username = "hard";
-        // const password = username
-        // res.onreadystatechange = function (e) {
-        //     if (res.readyState === 4 && res.status === 200) {
-        //         self.setEmployees(JSON.parse(this.response))
-        //     }
-        // }
-
-        // res.open("get", "https://cors-anywhere.herokuapp.com/http://hiring.rewardgateway.net/list")
-        // res.setRequestHeader('Authorization', 'Basic ' + btoa(username + ":" + password))
-        // res.send();
-
         var headers = new Headers();
         const username = "hard"
         const password = username
-        const url = "https://cors-anywhere.herokuapp.com/http://hiring.rewardgateway.net/list"
+        // const url = "http://hiring.rewardgateway.net/list"
         headers.set('Authorization', 'Basic ' + btoa(username + ":" + password));
-
-        return fetch(url, {
-            headers: headers
+        headers.set("Content-Type", "application.json")
+        return fetch("../../../employee.json", {
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            }
         })
-            .then(res => res.json())
+            .then(res => {
+                return res.json()
+            })
             .then(data => {
                 this.setEmployees(data);
             })
-            .catch(console.log)
+        // return fetch(url, {
+        //     headers: headers,
+        // })
+        //     .then(res => {
+        //         if (res.ok) {
+        //             return res.json()
+        //         } else {
+        //             throw Error(`Request rejected with status: ${res.status}`)
+        //         }
+        //     })
+        //     .then(data => {
+        //         this.setEmployees(data);
+        //     })
+        //     .catch(()=>{
+        //         console.error()
+        //     })
     }
 }

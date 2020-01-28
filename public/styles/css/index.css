@@ -1,0 +1,57 @@
+.employees-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.employee-content {
+  padding: 5px;
+  margin: 5px;
+  position: relative;
+  flex: 1;
+  border: 1px solid #ff7500;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.employee {
+  display: flex;
+  min-height: 120px;
+  flex: 1 1 50%;
+  position: relative;
+}
+
+.employee-avatar.active {
+  width: 100%;
+  display: block;
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: red;
+}
+
+.pagination-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 0;
+}
+.pagination-wrapper > .page-item {
+  list-style-type: none;
+}
+
+.page-item {
+  flex: 1 1 10%;
+  justify-content: center;
+  display: flex;
+}
+.page-item .page-button {
+  width: 100%;
+  margin: 10px;
+}
+.page-item .page-button:focus {
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/*# sourceMappingURL=index.css.map */

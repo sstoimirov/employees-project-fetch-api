@@ -40,12 +40,9 @@
     "build",
     "scripts",
     "acceptance-tests",
-    "webpack",
-    "jest",
-    "**/*.test.ts",
-    "**/*test.tsx"
+    "webpack"
   ],
   "include": [
-    "src", "src/setupJest.ts"
+    "src"
   ]
 }
