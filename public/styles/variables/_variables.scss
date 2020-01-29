@@ -1,21 +1,25 @@
 $primary_color: #fff;
 $backgorund-color__HEADER__main-navi-link--hover: linear-gradient(to right, #ff7500, #da1b60);
 
-$background-color__body: $primary_color;
+$background-color__body: #00a5b3;
 
 $color__header-container: $primary_color;
 $background-color__header-container: #875A7B;
 
-$background-color__header-menu-elements: #666;
-$background-color__header-menu-elements--hover: #875A7B;
+$background-color__header-menu-elements--hover: #00a5b3;
 
 $background-color__header-elements-dropdown--before: $primary_color;
 $background-color__header-elements-dropdown--after: $primary_color;
 
-$background-color__header-elements-dropdown--inner: #000;
+$background-color__header-elements-dropdown--inner: #666;
 $border-bottom__header-elements-dropdown--inner: 1px solid #808080;
 
 //scrollbar
 $box-shadow__SCROLLB: inset 2px 2px 2px rgba(255, 255, 255, .25), inset -2px -2px 2px rgba(0, 0, 0, .25);
 $background__SCROLLB: $backgorund-color__HEADER__main-navi-link--hover;
 $box-shadow__SCROLLB-track: inset 0 0 5px grey;
+
+//icons 
+$background-image__FB: url("../../imgs/facebook.svg");
+$background-image__TW: url("../../imgs/twitter.svg");
+$background-image__GO: url("../../imgs/google-plus.svg");
