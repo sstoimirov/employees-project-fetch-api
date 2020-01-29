@@ -25,10 +25,13 @@ export class View extends React.PureComponent<{}, {}>{
         }
         return (
             <div>
-                <CMP.Search text={`Filter items by ${this.state.optionValue}`} onChange={this.state.updateInputValue} />
-                <CMP.SelectDropdown {...selectMenuProps} />
+                <CMP.Header />
+                <div className="buttons-wrapper">
+                    <CMP.Search text={`Filter items by ${this.state.optionValue}`} onChange={this.state.updateInputValue} />
+                    <CMP.SelectDropdown {...selectMenuProps} />
+                    <CMP.Pagination {...this.state.pagination} />
+                </div>
                 <CMP.Employees dataProvider={this.state} />
-                <CMP.Pagination employeesPerPage={this.state.employeesPerPage} totalEmployees={this.state.employees.length} onClick={this.state.updateCurrentPage} />
             </div>
         )
     }
