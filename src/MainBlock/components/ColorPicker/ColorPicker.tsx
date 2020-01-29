@@ -6,11 +6,11 @@ export class ColorPicker extends React.PureComponent<{
     render() {
         return (
             <select className="select-options" onChange={this.props.onChange} defaultValue={this.props.choosenValue}>
-                <option value="#ffffff">white</option>
-                <option value="#f20000">red</option>
-                <option value="#1db954">green</option>
+                <option value="#ffffff">White</option>
+                <option value="#f20000">Red</option>
+                <option value="#1db954">Green</option>
                 {/* <option value="#00a3e0">blue</option> */}
-                <option value="#ff7500">orange</option>
+                <option value="#ff7500">Orange</option>
             </select>
         )
     }
