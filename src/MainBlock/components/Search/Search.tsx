@@ -8,7 +8,7 @@ export class Search extends React.PureComponent<SearchProps, {}>{
     render() {
         const { text, onChange } = this.props;
         return (
-            <TextField id="outlined-search" type="search" onChange={onChange} variant="outlined" label={text}/>
+            <TextField id="outlined-search" className="filter-section-search" type="search" onChange={onChange} variant="outlined" label={text}/>
         )
     }
 }

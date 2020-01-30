@@ -36,6 +36,20 @@ export class State {
         this.disposeEmployees = () => { };
     }
 
+    @action.bound updateHeaderOnScroll() {
+        const headerEl = document.getElementById("header-container");
+        const fixedClass = "header-container--fixed"
+        if (headerEl) {
+            if (window.pageYOffset > headerEl.clientHeight) {
+                headerEl.classList.add(fixedClass)
+                console.log("scrolling")
+            }
+            else {
+                headerEl.classList.remove(fixedClass)
+            }
+        }
+    }
+
     @action.bound changeColor(id: string, el: React.FormEvent<HTMLSelectElement>) {
         var bgcolor = el.currentTarget.value.toLowerCase();
         const item = this.employees.find(i => i.uuid === id);

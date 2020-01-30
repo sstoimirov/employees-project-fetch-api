@@ -13,6 +13,13 @@ export class View extends React.PureComponent<{}, {}>{
         this.state = new State(new Provider());
     }
 
+    componentDidMount() {
+        window.addEventListener("scroll", this.state.updateHeaderOnScroll);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener("scroll", this.state.updateHeaderOnScroll);
+    }
     render() {
         const selectMenuProps: SelectDropdownType = {
             onChange: this.state.updateOptionValue,

@@ -1,23 +1,29 @@
 $primary_color: #fff;
-$backgorund-color__HEADER__main-navi-link--hover: linear-gradient(to right, #ff7500, #da1b60);
-
 $background-color__body: #00a5b3;
 
+//header
 $color__header-container: $primary_color;
 $background-color__header-container: #875A7B;
-
-$background-color__header-menu-elements--hover: #00a5b3;
-
+$box-shadow__header-container: 0 4px 12px 0 rgba(0, 0, 0, .5);
+$background-color__header-menu-elements--hover: $background-color__body;
 $background-color__header-elements-dropdown--before: $primary_color;
 $background-color__header-elements-dropdown--after: $primary_color;
-
 $background-color__header-elements-dropdown--inner: #666;
 $border-bottom__header-elements-dropdown--inner: 1px solid #808080;
 
-//scrollbar
-$box-shadow__SCROLLB: inset 2px 2px 2px rgba(255, 255, 255, .25), inset -2px -2px 2px rgba(0, 0, 0, .25);
-$background__SCROLLB: $backgorund-color__HEADER__main-navi-link--hover;
-$box-shadow__SCROLLB-track: inset 0 0 5px grey;
+//filter
+$background-color__filter-section-wrapper: $primary_color;
+
+//employee
+$box-shadow__employee-content: 0 0 10px rgba(0, 0, 0, .5);
+$background-color__employee-content: $primary_color;
+$border__employee-avatar-holder: 2px solid #ebebeb;
+$background-color__employee-avatar-holder--active: rgba(0, 0, 0, 0.7);
+$background-color__select-options: #cde4f5;
+
+//footer
+$color__footer-container: $primary_color;
+$background__footer-container: linear-gradient(to right, #ff7500, #da1b60);
 
 //icons 
 $background-image__FB: url("../../imgs/facebook.svg");

@@ -7,7 +7,7 @@ export class SelectDropdown extends React.PureComponent<SelectDropdownType, {}>{
         const { employeeProps, onChange, optionValue } = this.props;
         return (
             <>
-                <FormControl variant="outlined">
+                <FormControl className="filter-section-search-category" variant="outlined">
                     <Select onChange={onChange} value={optionValue}>
                         <MenuItem value="name">{employeeProps.name}</MenuItem>
                         <MenuItem value="company">{employeeProps.company}</MenuItem>
