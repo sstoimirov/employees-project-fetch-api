@@ -12,6 +12,8 @@ export class Provider {
         this.employees = data;
     }
 
+    //Fetching data from URL
+
     // fetchData() {
     //     var headers = new Headers();
     //     const username = "hard"
@@ -35,6 +37,7 @@ export class Provider {
     //         })
     // }
 
+    // Fetching Data from local file
     fetchData() {
         var headers = new Headers();
         const username = "hard"

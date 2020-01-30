@@ -42,7 +42,6 @@ export class State {
         if (headerEl) {
             if (window.pageYOffset > headerEl.clientHeight) {
                 headerEl.classList.add(fixedClass)
-                console.log("scrolling")
             }
             else {
                 headerEl.classList.remove(fixedClass)

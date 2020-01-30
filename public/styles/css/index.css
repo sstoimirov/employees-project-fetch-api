@@ -30,11 +30,17 @@ body {
 
 .header-logo-wrapper {
   display: none;
+  position: absolute;
+  left: 50px;
+  align-self: center;
 }
 
 .header-menu-elements {
   display: flex;
+  margin-left: auto;
   align-items: center;
+  font-size: 16px;
+  font-size: 1.1428571429rem;
 }
 .header-menu-elements > div {
   padding: 30px;
@@ -79,7 +85,7 @@ body {
   position: absolute;
   top: 100%;
   right: 0;
-  width: 145px;
+  width: 170px;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   overflow: hidden;
@@ -156,8 +162,12 @@ body {
   flex: 0 0 70%;
 }
 .filter-section .filter-section-search {
+  display: flex;
   width: 100%;
   margin-right: 10px;
+}
+.filter-section .filter-section-search-text input {
+  text-overflow: ellipsis;
 }
 .filter-section .filter-section-search-category {
   min-width: 150px;
@@ -169,10 +179,10 @@ body {
 }
 
 .employee-content {
+  display: flex;
   position: relative;
   margin: 10px;
   padding: 10px;
-  display: flex;
   flex: 1;
   flex-direction: column;
   justify-content: center;
@@ -304,6 +314,11 @@ body {
     min-width: 320px;
   }
 
+  .header-menu-elements {
+    font-size: 12px;
+    font-size: 0.8571428571rem;
+    margin: 0;
+  }
   .header-menu-elements > div {
     padding: 20px 18px;
   }
@@ -315,6 +330,10 @@ body {
   .header-elements-dropdown:after {
     right: 0;
     top: 28px;
+  }
+
+  .header-elements-dropdown--inner {
+    width: 145px;
   }
 
   .header-menu-icons {

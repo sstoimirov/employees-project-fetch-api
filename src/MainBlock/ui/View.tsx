@@ -14,11 +14,33 @@ export class View extends React.PureComponent<{}, {}>{
     }
 
     componentDidMount() {
+        this.state.activate()
         window.addEventListener("scroll", this.state.updateHeaderOnScroll);
     }
 
     componentWillUnmount() {
         window.removeEventListener("scroll", this.state.updateHeaderOnScroll);
+    }
+
+    getEmployees() {
+        const currentEmployees = this.state.employees.slice(this.state.indexOfFirstEmployee, this.state.indexOfLastEmployee);
+        return (
+            currentEmployees.map(data => (
+                <CMP.Employee
+                    key={data.uuid}
+                    uuid={data.uuid}
+                    name={data.name}
+                    title={data.title}
+                    company={data.company}
+                    avatar={data.avatar}
+                    bio={data.bio}
+                    onClick={this.state.toggleImageCls}
+                    onColorChanged={this.state.changeColor.bind(this, data.uuid)}
+                    colorValue={sessionStorage.getItem(data.uuid) as string}
+                />
+            ))
+                .filter((x, index) => currentEmployees[index][this.state.optionValue].toUpperCase().indexOf(this.state.inputValue) > -1)
+        )
     }
     render() {
         const selectMenuProps: SelectDropdownType = {
@@ -41,7 +63,9 @@ export class View extends React.PureComponent<{}, {}>{
                         </div>
                         <CMP.Pagination {...this.state.pagination} />
                     </div>
-                    <CMP.Employees dataProvider={this.state} />
+                    <div className="employees-wrapper">
+                        {this.getEmployees()}
+                    </div>
                 </div>
                 <CMP.Footer />
             </div>
