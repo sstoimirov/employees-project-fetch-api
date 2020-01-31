@@ -16,15 +16,6 @@ export class Pagination extends React.PureComponent<PaginationType, {}>{
                 <Button className="pagination-info" variant="contained">{`${this.props.currentPage}/${pageNumbers.length}`}</Button>
                 <Fab disabled={this.props.isDisabledInc} onClick={this.props.onClickInc} color="primary">{">"}</Fab>
             </div>
-            // <ul className="pagination-wrapper">
-            //     {pageNumbers.map(number => (
-            //         <li key={number} className="page-item">
-            //             <Button onClick={this.props.onClick} className="page-button" variant="outlined" color="primary">
-            //                 {number}
-            //             </Button>
-            //         </li>
-            //     ))}
-            // </ul>
         )
     }
 }
