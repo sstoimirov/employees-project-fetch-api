@@ -63,7 +63,7 @@ export class State {
 
     }
     @action.bound setEmployees(employee: EmployeeType[]) {
-        this.employees = employee;
+        this.employees = JSON.parse(localStorage.getItem("1") as string);
     }
     @action.bound toggleImageCls(e: React.MouseEvent<HTMLAnchorElement>) {
         e.currentTarget.classList.toggle("active");
@@ -97,6 +97,7 @@ export class State {
             this.setEmployees(e.newValue);
             this.pagination.totalEmployees = e.newValue.length
         })
+
     }
     deactivate() {
         this.disposeEmployees();
