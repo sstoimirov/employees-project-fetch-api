@@ -1,6 +1,5 @@
 import { observable, action } from "mobx"
 import { EmployeeType } from "../types";
-// import axios from "axios";
 export class Provider {
     @observable employees: EmployeeType[];
     constructor() {
