@@ -50,7 +50,7 @@ export class State {
     }
 
     @action.bound changeColor(id: string, el: React.FormEvent<HTMLSelectElement>) {
-        var bgcolor = el.currentTarget.value.toLowerCase();
+        const bgcolor = el.currentTarget.value.toLowerCase();
         const item = this.employees.find(i => i.uuid === id);
         if (item) {
             sessionStorage.setItem(item.uuid, bgcolor);
@@ -63,7 +63,7 @@ export class State {
 
     }
     @action.bound setEmployees(employee: EmployeeType[]) {
-        this.employees = JSON.parse(localStorage.getItem("1") as string);
+        this.employees = employee;
     }
     @action.bound toggleImageCls(e: React.MouseEvent<HTMLAnchorElement>) {
         e.currentTarget.classList.toggle("active");
