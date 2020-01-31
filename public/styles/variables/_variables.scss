@@ -1,0 +1,31 @@
+$primary_color: #fff;
+$background-color__body: #00a5b3;
+
+//header
+$color__header-container: $primary_color;
+$background-color__header-container: #875A7B;
+$box-shadow__header-container: 0 4px 12px 0 rgba(0, 0, 0, .5);
+$background-color__header-menu-elements--hover: $background-color__body;
+$background-color__header-elements-dropdown--before: $primary_color;
+$background-color__header-elements-dropdown--after: $primary_color;
+$background-color__header-elements-dropdown--inner: #666;
+$border-bottom__header-elements-dropdown--inner: 1px solid #808080;
+
+//filter
+$background-color__filter-section-wrapper: $primary_color;
+
+//employee
+$box-shadow__employee-content: 0 0 10px rgba(0, 0, 0, .5);
+$background-color__employee-content: $primary_color;
+$border__employee-avatar-holder: 2px solid #ebebeb;
+$background-color__employee-avatar-holder--active: rgba(0, 0, 0, 0.7);
+$background-color__select-options: #cde4f5;
+
+//footer
+$color__footer-container: $primary_color;
+$background__footer-container: linear-gradient(to right, #ff7500, #da1b60);
+
+//icons 
+$background-image__FB: url("../../imgs/facebook.svg");
+$background-image__TW: url("../../imgs/twitter.svg");
+$background-image__GO: url("../../imgs/google-plus.svg");
